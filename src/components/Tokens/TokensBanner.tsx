@@ -10,35 +10,32 @@ import styled, { useTheme } from 'styled-components/macro'
 import { opacify } from 'theme/utils'
 import { Z_INDEX } from 'theme/zIndex'
 
-import tokensPromoDark from '../../assets/images/tokensPromoDark.png'
-import tokensPromoLight from '../../assets/images/tokensPromoLight.png'
-
 const BackgroundColor = styled(Link)<{ show: boolean }>`
-  background-color: ${({ theme }) => (theme.darkMode ? theme.backgroundScrim : '#FDF0F8')};
+  background-color: ${({ theme }) => (theme.darkMode ? theme.backgroundScrim : '#0D0BB1')};
   border: 1px solid ${({ theme }) => theme.backgroundOutline};
   border-radius: 12px;
-  bottom: 48px;
+  bottom: -70px;
   box-shadow: ${({ theme }) => theme.deepShadow};
   display: ${({ show }) => (show ? 'block' : 'none')};
   height: 88px;
-  position: fixed;
+  position: absolute;
   right: clamp(0px, 1vw, 16px);
   text-decoration: none;
-  width: 320px;
+  width: 140px;
   z-index: ${Z_INDEX.sticky};
 `
 const PopupContainer = styled.div`
-  background-color: ${({ theme }) => (theme.darkMode ? theme.backgroundScrim : opacify(60, '#FDF0F8'))};
-  background-image: url(${({ theme }) => (theme.darkMode ? `${tokensPromoDark}` : `${tokensPromoLight}`)});
+  background-color: ${({ theme }) => (theme.darkMode ? theme.backgroundScrim : opacify(60, '#0D0BB1'))};
+  background-image: url(./static/media/tokensPromoLight.bef97fb5.png);
   background-size: cover;
   background-blend-mode: overlay;
-  border-radius: 12px;
-  color: ${({ theme }) => theme.textPrimary};
+  border-radius: 20px;
+  color: #f7eded;
   display: flex;
   flex-direction: column;
   gap: 8px;
   height: 100%;
-  padding: 12px 16px 12px 20px;
+  padding: 20px 16px 12px 20px;
 
   transition: ${({
     theme: {
@@ -59,7 +56,7 @@ const HeaderText = styled.span`
 
 const Description = styled.span`
   font-weight: 400;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 16px;
   width: max(212px, calc(100% - 36px));
 `
@@ -76,7 +73,11 @@ export default function TokensBanner() {
         <PopupContainer>
           <Header>
             <HeaderText>
-              <Trans>Explore Top Tokens on Uniswap</Trans>
+              <Trans>
+                <a href="https://svgshare.com/s/oEL">
+                  <img src="https://svgshare.com/i/oEL.svg" title="" />
+                </a>
+              </Trans>
             </HeaderText>
             <X
               size={20}
@@ -91,7 +92,7 @@ export default function TokensBanner() {
           </Header>
 
           <Description>
-            <Trans>Sort and filter assets across networks on the new Tokens page.</Trans>
+            <Trans>www.gtps.finance</Trans>
           </Description>
         </PopupContainer>
       </TraceEvent>
